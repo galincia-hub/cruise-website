@@ -1,0 +1,179 @@
+---
+layout: default
+---
+{% include breadcrumb.html items=page.breadcrumb %}
+
+<!-- Hero (§5.2 row 2) -->
+<section class="cl-hero">
+  <div class="container">
+    <div class="content">
+      <span class="badge badge-dark" style="margin-bottom:10px">{{ page.tier }}</span>
+      <h1>{{ page.display_name }}</h1>
+      <div class="slogan">{{ page.en_slogan }}</div>
+      <p>{{ page.tagline }}</p>
+    </div>
+    <div class="stats">
+      {% for fact in page.quick_facts %}
+      <div class="stat">
+        <div class="num">{{ fact.value }}</div>
+        <div class="label">{{ fact.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Key Points (§5.2 row 3) -->
+{% if page.key_points %}
+<section style="padding:0;border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="key-points">
+      {% for kp in page.key_points %}
+      <div class="key-point">
+        <div class="icon">{{ kp.icon }}</div>
+        <div class="title">{{ kp.title }}</div>
+        <div class="desc">{{ kp.desc }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Ships (§5.2 row 4) -->
+{% if page.ships %}
+<section class="section">
+  <div class="container">
+    {% include section-divider.html label="보유 선박" %}
+    <h2 class="section-title">보유 선박</h2>
+    <p class="section-desc">{{ page.display_name }}의 선박을 소개합니다.</p>
+    <div class="ship-grid">
+      {% for ship in page.ships %}
+      <div class="ship-card card">
+        <div class="img">🚢</div>
+        <div class="body">
+          <h4>{{ ship.name }}</h4>
+          {% if ship.specs %}<div class="specs">{{ ship.specs }}</div>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Voyages (§5.2 row 5) -->
+{% if page.products %}
+<section class="section" style="padding-top:0">
+  <div class="container">
+    {% include section-divider.html label="추천 항해" %}
+    <h2 class="section-title">추천 항해</h2>
+    <p class="section-desc">{{ page.display_name }}의 인기 항해를 확인하세요.</p>
+    <div class="voyage-grid-3">
+      {% for p in page.products limit:6 %}
+      <div class="voyage-card card">
+        <div class="img">⚓
+          <span class="badge badge-dark" style="position:absolute;top:10px;left:10px">{{ p.nights }}</span>
+        </div>
+        <div class="body">
+          <h4>{{ p.title }}</h4>
+          <div class="meta"><span>선박</span> {{ p.ship }}</div>
+          <div class="meta"><span>출발</span> {{ p.departure }}</div>
+          <div class="meta"><span>항로</span> {{ p.route }}</div>
+          {% if p.includes %}
+          <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:4px">
+            {% for inc in p.includes %}<span class="badge badge-green" style="font-size:10px">{{ inc }}</span>{% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <a href="#" class="cta">상세 보기 →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- About (§5.2 row 6) -->
+<section class="cl-about">
+  <div class="container">
+    <div>
+      <h3>{{ page.display_name }}</h3>
+      <div class="en-name">{{ page.title | upcase }} — OFFICIAL PARTNER</div>
+      {{ content }}
+    </div>
+    <div class="facts">
+      {% for fact in page.quick_facts %}
+      <div class="fact-row">
+        <span class="label">{{ fact.label }}</span>
+        <span class="value">{{ fact.value }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- BDM Interview (§5.2 — regent v2 specific) -->
+{% if page.bdm %}
+<section class="bdm-section" style="padding:0 0 var(--section-gap)">
+  <div class="container">
+    {% include section-divider.html label="Official Partnership" %}
+    <div class="bdm-card" style="margin-top:20px">
+      <div class="bdm-header">
+        <span>🤝</span>
+        <span>{{ page.bdm.company }}</span>
+        <strong>{{ page.bdm.label }}</strong>
+      </div>
+      <div class="bdm-body">
+        <div class="bdm-photo">👤</div>
+        <div>
+          <h4>{{ page.bdm.name }}</h4>
+          <div class="role">{{ page.bdm.role }}</div>
+          <blockquote>"{{ page.bdm.quote }}"</blockquote>
+          <div class="context">{{ page.bdm.context }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Consultants (§5.2 row 7, §9.1) -->
+{% if page.consultants %}
+<section style="background:var(--bg);padding:var(--section-gap) 0">
+  <div class="container">
+    {% include section-divider.html label="전문 컨설턴트" %}
+    <h2 class="section-title">전문 컨설턴트</h2>
+    <p class="section-desc">{{ page.display_name }} 공식 인증 전문가가 상담합니다.</p>
+    <div class="consultant-grid-2">
+      {% for c in page.consultants %}
+        {% include card-consultant.html c=c %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Related Blog (§5.2 row 8, §9.2) -->
+{% assign cl_posts = site.posts | where_exp: "p", "p.cruiselines contains page.display_name" %}
+{% if cl_posts.size > 0 %}
+<section class="section">
+  <div class="container">
+    {% include section-divider.html label="관련 블로그" %}
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h2 class="section-title" style="margin-bottom:0">관련 블로그</h2>
+      <a href="/blog/" class="section-link">전체 보기 →</a>
+    </div>
+    {% for post in cl_posts limit:3 %}
+    <a href="{{ post.url }}" class="blog-row">
+      <div class="icon">📝</div>
+      <div class="info">
+        <h4>{{ post.title }}</h4>
+        <div class="meta">{{ post.date | date: "%Y. %m. %d" }} · {{ post.category | default: "크루즈 가이드" }}</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

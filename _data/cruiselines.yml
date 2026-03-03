@@ -1,0 +1,41 @@
+- slug: regent
+  name_en: Regent Seven Seas Cruises
+  name_ko: 리젠트 세븐시즈
+  tier: "울트라 럭셔리"
+  tagline: "올인클루시브의 정점"
+
+- slug: silversea
+  name_en: Silversea Cruises
+  name_ko: 실버시
+  tier: "울트라 럭셔리"
+  tagline: "프라이빗 럭셔리"
+
+- slug: crystal
+  name_en: Crystal Cruises
+  name_ko: 크리스탈
+  tier: "울트라 럭셔리"
+  tagline: "미식의 바다"
+
+- slug: ritzcarlton
+  name_en: Ritz-Carlton Yacht Collection
+  name_ko: 리츠칼튼 요트
+  tier: "울트라 럭셔리"
+  tagline: "호텔 럭셔리의 확장"
+
+- slug: fourseasons
+  name_en: Four Seasons Yachts
+  name_ko: 포시즌스
+  tier: "울트라 럭셔리"
+  tagline: "포시즌스, 바다 위로"
+
+- slug: oceania
+  name_en: Oceania Cruises
+  name_ko: 오세아니아
+  tier: "프리미엄"
+  tagline: "미식 중심 프리미엄"
+
+- slug: paulgauguin
+  name_en: Paul Gauguin Cruises
+  name_ko: 폴고갱
+  tier: "스페셜티"
+  tagline: "남태평양 전문"

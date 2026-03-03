@@ -1,0 +1,73 @@
+---
+layout: default
+---
+{% include breadcrumb.html items=page.breadcrumb_items %}
+
+<!-- Category Tabs -->
+<div class="blog-cat-tabs">
+  <div class="container" style="display:flex;justify-content:center">
+    {% assign cats = "전체,선박리뷰,객실가이드,다이닝,기항지가이드,선사비교,크루즈입문,프로모션" | split: "," %}
+    {% for cat in cats %}
+    <button class="blog-cat-tab{% if cat == page.category %} active{% endif %}" data-cat="{{ cat }}">{{ cat }}</button>
+    {% endfor %}
+  </div>
+</div>
+
+<article style="padding:40px 0">
+  <div class="container-narrow">
+    <!-- Badges -->
+    <div style="display:flex;gap:6px;margin-bottom:12px">
+      <span class="badge badge-navy">{{ page.category | default: "크루즈 가이드" }}</span>
+      {% for cl in page.cruiselines %}<span class="badge badge-orange">{{ cl }}</span>{% endfor %}
+      {% if page.region %}<span class="badge badge-green">{{ page.region }}</span>{% endif %}
+    </div>
+
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    <div class="post-author">
+      <div class="avatar">CI</div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--text)">크루즈 인터내셔널</div>
+        <div style="font-size:12px;color:var(--text-muted)">{{ page.date | date: "%Y. %m. %d" }} · {{ page.read_time | default: "5" }}분 읽기</div>
+      </div>
+    </div>
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <!-- Brand CTA -->
+    <div class="brand-cta" style="margin:40px 0">
+      <div>
+        <div class="text">맞춤 항해를 설계하세요</div>
+        <div class="sub">25년 경력 전문 컨설턴트가 상담해드립니다.</div>
+      </div>
+      <div class="buttons">
+        <a href="/contact/" class="btn btn-primary btn-sm">상담 신청</a>
+        <a href="tel:02-775-0100" class="btn btn-secondary btn-sm">전화 상담</a>
+      </div>
+    </div>
+
+    <!-- Company Signature -->
+    <div class="company-signature" style="margin-bottom:40px">
+      <p style="font-size:13px;color:var(--text-light);line-height:1.8"><strong style="color:var(--navy-text)">크루즈인터내셔널</strong> — 2000년부터 리젠트 세븐시즈, 실버시, 크리스탈 등 세계 최상위 크루즈 선사 9곳의 공식 총판으로 활동하고 있습니다.</p>
+    </div>
+
+    <!-- Related Posts -->
+    {% assign related = site.posts | where_exp: "p", "p.url != page.url" %}
+    {% if related.size > 0 %}
+    <h3 style="font-family:var(--font-serif);font-size:18px;font-weight:700;color:var(--navy-text);margin-bottom:16px">관련 글</h3>
+    <div class="related-grid">
+      {% for rp in related limit:3 %}
+      <a href="{{ rp.url }}" class="related-card">
+        <div class="image">📝</div>
+        <div style="padding:12px">
+          <h4 style="font-size:13px;font-weight:700;color:var(--navy-text);line-height:1.4;margin-bottom:6px">{{ rp.title }}</h4>
+          <span style="font-size:11px;color:var(--text-muted)">{{ rp.date | date: "%Y. %m. %d" }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</article>

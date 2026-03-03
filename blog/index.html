@@ -1,0 +1,102 @@
+---
+layout: default
+title: 크루즈 인사이트
+description: "24년 럭셔리 크루즈 전문가의 인사이트 — 선박 리뷰, 객실 가이드, 기항지 정보"
+---
+
+<!-- Blog Masthead (ocean gradient) -->
+<section class="blog-masthead">
+  <div class="container">
+    <div class="brand">CRUISE INTERNATIONAL</div>
+    <h1>크루즈 인사이트</h1>
+    <div class="tagline">24년 럭셔리 크루즈 전문가의 리뷰, 가이드, 비교 분석</div>
+  </div>
+</section>
+
+<!-- Category Tabs -->
+<div class="blog-cat-tabs">
+  <div class="container" style="display:flex;justify-content:center">
+    {% assign cats = "전체,선박리뷰,객실가이드,다이닝,기항지가이드,선사비교,크루즈입문,프로모션" | split: "," %}
+    {% for cat in cats %}
+    <button class="blog-cat-tab{% if forloop.first %} active{% endif %}" data-cat="{{ cat }}">{{ cat }}</button>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Filters -->
+<div class="blog-filters">
+  <div class="container">
+    <div class="filter-row">
+      <span class="label">선사</span>
+      <button class="filter-chip active">전체</button>
+      <button class="filter-chip">리젠트</button>
+      <button class="filter-chip">실버시</button>
+      <button class="filter-chip">크리스탈</button>
+      <button class="filter-chip">리츠칼튼</button>
+      <button class="filter-chip">포시즌스</button>
+      <button class="filter-chip">오세아니아</button>
+    </div>
+    <div class="filter-row">
+      <span class="label">지역</span>
+      <button class="filter-chip active">전체</button>
+      <button class="filter-chip">지중해</button>
+      <button class="filter-chip">카리브해</button>
+      <button class="filter-chip">알래스카</button>
+      <button class="filter-chip">북유럽</button>
+      <button class="filter-chip">아시아</button>
+      <button class="filter-chip">남태평양</button>
+      <button class="filter-chip">세계일주</button>
+      <button class="filter-chip">한국항구탑승</button>
+    </div>
+  </div>
+</div>
+
+<!-- Featured Post -->
+<section class="section">
+  <div class="container">
+    {% assign featured = site.posts | first %}
+    {% if featured %}
+    <a href="{{ featured.url }}" class="blog-featured" style="margin-bottom:32px;text-decoration:none">
+      <div class="image">🚢</div>
+      <div class="content">
+        <span class="badge badge-orange badge-pill" style="margin-bottom:10px">EDITOR'S PICK</span>
+        <div style="display:flex;gap:6px;margin-bottom:10px">
+          <span class="badge badge-navy">{{ featured.category | default: "크루즈 가이드" }}</span>
+          {% if featured.cruiselines %}<span class="badge badge-orange">{{ featured.cruiselines | first }}</span>{% endif %}
+        </div>
+        <h2 style="font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--navy-text);margin-bottom:10px;line-height:1.3">{{ featured.title }}</h2>
+        <p style="font-size:13px;color:var(--text-light);line-height:1.7;margin-bottom:12px">{{ featured.excerpt | strip_html | truncate: 120 }}</p>
+        <div style="font-size:11px;color:var(--text-muted)">{{ featured.date | date: "%Y. %m. %d" }} · {{ featured.read_time | default: "5" }}분 읽기</div>
+      </div>
+    </a>
+    {% endif %}
+
+    <!-- Post Grid (2-column) -->
+    <div class="blog-grid">
+      {% for post in site.posts offset:1 %}
+      <a href="{{ post.url }}" class="blog-post-card">
+        <div class="card-image">📝</div>
+        <div class="card-content">
+          <div style="display:flex;gap:4px;margin-bottom:8px">
+            <span class="badge badge-navy" style="font-size:9px">{{ post.category | default: "크루즈 가이드" }}</span>
+            {% if post.cruiselines %}<span class="badge badge-orange" style="font-size:9px">{{ post.cruiselines | first }}</span>{% endif %}
+          </div>
+          <h3>{{ post.title }}</h3>
+          <div class="excerpt">{{ post.excerpt | strip_html | truncate: 80 }}</div>
+          <div class="card-footer">
+            <span style="font-size:11px;color:var(--text-muted)">{{ post.date | date: "%Y. %m. %d" }}</span>
+            <span style="font-size:11px;color:var(--text-muted)">{{ post.read_time | default: "5" }}분</span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="pagination">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">→</button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,56 @@
+---
+layout: default
+title: 상담 문의
+---
+{% include breadcrumb.html items=page.bc %}
+
+<section class="section">
+  <div class="container" style="max-width:800px;margin:0 auto;padding:0 20px">
+    <h1 class="section-title" style="font-size:28px;text-align:center;margin-bottom:4px">상담 문의</h1>
+    <p style="text-align:center;font-size:14px;color:var(--text-light);margin-bottom:32px">전문 컨설턴트가 맞춤 항해를 설계해드립니다.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px">
+      <a href="tel:02-775-0100" style="display:block;padding:24px;border:1px solid var(--border);border-radius:var(--card-radius-lg);text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:28px;margin-bottom:8px">📞</div>
+        <div style="font-family:var(--font-serif);font-size:18px;font-weight:700;color:var(--navy-text);margin-bottom:4px">전화 상담</div>
+        <div style="font-size:16px;font-weight:700;color:var(--orange);margin-bottom:4px">02-775-0100</div>
+        <div style="font-size:12px;color:var(--text-muted)">평일 09:00 – 18:00</div>
+      </a>
+      <a href="#" style="display:block;padding:24px;border:1px solid var(--border);border-radius:var(--card-radius-lg);text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:28px;margin-bottom:8px">💬</div>
+        <div style="font-family:var(--font-serif);font-size:18px;font-weight:700;color:var(--navy-text);margin-bottom:4px">카카오톡 상담</div>
+        <div style="font-size:13px;color:var(--text-light)">카카오톡 채널에서 편하게 문의하세요</div>
+      </a>
+    </div>
+
+    <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--card-radius-lg);padding:28px">
+      <h2 style="font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--navy-text);margin-bottom:20px">온라인 상담 신청</h2>
+      <div style="display:grid;gap:16px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:4px">이름 *</label>
+            <input type="text" placeholder="홍길동" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--card-radius);font-size:14px;font-family:var(--font-sans)">
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:4px">연락처 *</label>
+            <input type="tel" placeholder="010-1234-5678" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--card-radius);font-size:14px;font-family:var(--font-sans)">
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:4px">관심 선사</label>
+          <select style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--card-radius);font-size:14px;font-family:var(--font-sans);color:var(--text-light)">
+            <option>선택해주세요</option>
+            <option>리젠트 세븐시즈</option><option>실버시</option><option>크리스탈</option>
+            <option>리츠칼튼 요트</option><option>포시즌스</option><option>오세아니아</option><option>폴고갱</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:4px">문의 내용</label>
+          <textarea rows="4" placeholder="희망 여행 시기, 인원, 관심 항로 등을 자유롭게 적어주세요." style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--card-radius);font-size:14px;font-family:var(--font-sans);resize:vertical"></textarea>
+        </div>
+        <button class="btn btn-primary" style="width:100%">상담 신청하기</button>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:12px;text-align:center">영업일 기준 24시간 이내에 연락드립니다.</p>
+    </div>
+  </div>
+</section>

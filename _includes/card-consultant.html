@@ -1,0 +1,20 @@
+<div class="consultant-card card">
+  <div class="top">
+    <div class="avatar">{{ include.c.initial }}</div>
+    <div>
+      <div class="name">{{ include.c.name }}</div>
+      <div class="title">{{ include.c.title }}</div>
+      <div class="badges">
+        {% for cert in include.c.certifications %}
+        <span class="badge badge-orange">{{ cert }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="bio">{{ include.c.bio }}</div>
+  <div class="specialties">전문 선사: {{ include.c.specialties | join: " · " }}</div>
+  <div class="actions">
+    <a href="/contact/" class="btn btn-primary btn-sm">상담 신청</a>
+    <a href="tel:02-775-0100" class="btn btn-secondary btn-sm">전화 상담</a>
+  </div>
+</div>

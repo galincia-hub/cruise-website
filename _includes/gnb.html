@@ -1,0 +1,8 @@
+<nav class="gnb">
+  <div class="container">
+    {% for cl in site.data.cruiselines %}
+    <a href="/{{ cl.slug }}/"{% if page.cruiseline_slug == cl.slug %} class="active"{% endif %}>{{ cl.name_ko }}</a>
+    {% endfor %}
+    <a href="/contact/" class="gnb-cta">상담하기</a>
+  </div>
+</nav>
