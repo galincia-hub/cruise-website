@@ -91,7 +91,7 @@
 |-------|------|------|
 | **K0** | CruiseDB 파일 | 지금. KMS 입력·검색·상담 제공 |
 | **K1** | 파일 + Supabase 미러/이관 | 이중 기록 |
-| **K2** | Supabase 전역 정본 후보 | 파일는 백업·export |
+| **K2** | Supabase 전역 정본 후보 | 파일은 백업·export |
 
 규칙: KMS 통로 유지 · 손님=카톡 / 직원=KMS · PII는 지식 DB에 넣지 않음 · 지식·CRM Supabase 논리 분리.
 
