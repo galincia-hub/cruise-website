@@ -4,6 +4,7 @@
 - **가칭:** 크루즈시스템 / 크루즈시스템구축  
 - **문서 기준일:** 2026-09-10  
 - **SSOT:** 이 문서는 `galincia-hub/cruise-website`의 `docs/` 허브에 둔다. 사이트 빌드에서는 `docs/` exclude.
+- **전체 맵:** [system-map-v1.md](system-map-v1.md) — **locked (확정)**
 
 ## 1. 한 줄 정의
 
@@ -27,6 +28,8 @@
 참조: CruiseKMS `Pipeline 4: KMS 마스터 입력기 (I1~I4)`, 블로그 완성 시 KMS 자동추출 경로.
 
 ## 3. 시스템 인과 흐름
+
+구성 다이어그램·확정 규칙 6조는 **[전체 맵 v1](system-map-v1.md)** 이 정본이다.
 
 ```text
 [입력]
@@ -77,11 +80,13 @@
 
 **확정**
 
+- **전체 맵 v1 locked** — `docs/overview/system-map-v1.md`  
 - 배포 정본: GitHub Pages — `docs/decisions/0003-deploy-github-pages.md`  
 - KMS↔DB 한몸, 입력+제공 양방향  
 - Studio ⊃ blog-v2 (채널 전문 파생 구조)  
 - MD 듀얼(단품 카드 / 패키지)  
-- 미디어 ADR: 영상 YouTube embed, 이미지 Cloudflare R2 (`docs/decisions/0001-…`)
+- 미디어 ADR: 영상 YouTube embed, 이미지 Cloudflare R2 (`docs/decisions/0001-…`)  
+- 제작 코딩 보류 (기획 우선)
 
 **미결·확인 중**
 
@@ -91,7 +96,8 @@
 
 ## 7. 관련 문서
 
+- `docs/overview/system-map-v1.md` — 전체 맵 확정본  
 - `docs/README.md` — 허브 규약  
 - `docs/decisions/0001-media-storage.md`, `0002-…`, `0003-deploy-github-pages.md`  
 - `docs/library/cruise-design.md`, `cruise-site-structure.md`  
-- `docs/handoff/`, `docs/decisions/0002-site-plan-reinforce-from-handoff.md`
+- `docs/handoff/`
