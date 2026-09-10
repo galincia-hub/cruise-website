@@ -24,4 +24,4 @@ Jekyll 정적 사이트. 소규모 팀. 상품·선사 이미지가 늘 예정. 
 
 ## Still open (별도 ADR)
 
-배포 플랫폼(Pages/CF Pages/Netlify), 색상 토큰, 문의 백엔드.
+색상 토큰, 문의 백엔드. 배포는 **ADR 0003** (GitHub Pages)로 확정.
