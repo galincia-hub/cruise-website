@@ -11,3 +11,6 @@ vendor/
 .mcp.json
 node_modules/
 *.xlsx
+
+# 내부 자료 (사업계획서/DB지침서/목업 — 공개 금지)
+site_data/

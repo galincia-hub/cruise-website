@@ -38,3 +38,4 @@ exclude:
   - README.md
   - node_modules
   - docs
+  - site_data
