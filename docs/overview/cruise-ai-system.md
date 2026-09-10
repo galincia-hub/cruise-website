@@ -53,7 +53,7 @@
 
 | 구성 | GitHub / 위치 | 역할 |
 |------|---------------|------|
-| **cruise-website** | `galincia-hub/cruise-website` (로컬 `cruise-site`) | Site Master (Jekyll). 배포 정본 = **GitHub Pages**. |
+| **cruise-website** | `galincia-hub/cruise-website` (로컬 `cruise-site`) | Site Master (Jekyll). 배포 정본 = **GitHub Pages** (ADR 0003). |
 | **CruiseMD** | `CruiseMD` | 상품 SSOT. **단품** = 카드 HTML. **패키지**(항공+지상) = 카드만으로 부족 → **듀얼**. |
 | **CruiseStudio** | `CruiseStudio` | 블로그·스레드·인스타·EDM 등 **채널 소싱 종합 툴**(상위 개념). |
 | **blog-v2** | `blog-v2` (private) | 사이트와 붙는 **블로그 전문화**. Studio 아래 파생. 이후 채널별 전문 파생 예정. |
@@ -77,7 +77,7 @@
 
 **확정**
 
-- 배포 정본: GitHub Pages  
+- 배포 정본: GitHub Pages — `docs/decisions/0003-deploy-github-pages.md`  
 - KMS↔DB 한몸, 입력+제공 양방향  
 - Studio ⊃ blog-v2 (채널 전문 파생 구조)  
 - MD 듀얼(단품 카드 / 패키지)  
@@ -92,6 +92,6 @@
 ## 7. 관련 문서
 
 - `docs/README.md` — 허브 규약  
-- `docs/decisions/` — ADR  
+- `docs/decisions/0001-media-storage.md`, `0002-…`, `0003-deploy-github-pages.md`  
 - `docs/library/cruise-design.md`, `cruise-site-structure.md`  
 - `docs/handoff/`, `docs/decisions/0002-site-plan-reinforce-from-handoff.md`
