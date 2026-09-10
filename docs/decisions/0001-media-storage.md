@@ -1,13 +1,14 @@
-# ADR 0001 — 미디어 저장 (초안, 사용자 확인 전)
+# ADR 0001 — 미디어 저장
 
-- Status: proposed
+- Status: **accepted**
 - Date: 2026-09-10
+- Confirmed by: Kangsoo Hyun
 
 ## Context
 
 Jekyll 정적 사이트. 소규모 팀. 상품·선사 이미지가 늘 예정. 영상은 자체 호스팅 부담이 큼.
 
-## Decision (제안)
+## Decision
 
 1. **영상**: YouTube(기본) 임베드. 필요 시 Vimeo. 레포·오브젝트 스토리지에 원본 영상 두지 않음.
 2. **이미지 원본/웹 배포 파일**: **Cloudflare R2** (+ 공개 버킷 또는 커스텀 도메인 CDN).
@@ -18,9 +19,9 @@ Jekyll 정적 사이트. 소규모 팀. 상품·선사 이미지가 늘 예정. 
 ## Consequences
 
 - git 비대화 방지, Claude↔개발팀 핸드오프는 문서·코드 중심.
-- R2 계정·버킷·공개 URL 규칙(`images.cruise.co.kr/...` 등)은 착수 시 설정.
-- 대안: Cloudinary 올인원(변환 편함, 트래픽 과금 주의).
+- R2 계정·버킷·공개 URL 규칙(예: `images.cruise.co.kr/...`)은 인프라 착수 시 설정.
+- 대안이었던 Cloudinary 올인원은 변환 레이어가 필요할 때 재검토.
 
-## Not decided yet
+## Still open (별도 ADR)
 
 배포 플랫폼(Pages/CF Pages/Netlify), 색상 토큰, 문의 백엔드.
