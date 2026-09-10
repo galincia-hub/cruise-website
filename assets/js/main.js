@@ -25,6 +25,31 @@ document.querySelectorAll('.filter-chip').forEach(function(chip) {
   });
 });
 
+// Voyage sticky section nav
+(function() {
+  var nav = document.getElementById('voyage-sticky-nav');
+  if (!nav) return;
+  var links = nav.querySelectorAll('.voyage-sticky-nav-links a');
+  var ids = [];
+  links.forEach(function(link) {
+    var id = (link.getAttribute('href') || '').replace('#', '');
+    if (id && document.getElementById(id)) ids.push(id);
+  });
+  function setActive() {
+    var current = ids[0];
+    var offset = 80;
+    ids.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top - offset <= 0) current = id;
+    });
+    links.forEach(function(link) {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + current);
+    });
+  }
+  document.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+})();
+
 // Hero carousel (simple auto-rotate dots)
 (function() {
   var dots = document.querySelectorAll('.hero .dot');

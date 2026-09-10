@@ -1,0 +1,13 @@
+<nav class="voyage-sticky-nav" id="voyage-sticky-nav" aria-label="상품 섹션">
+  <div class="container">
+    <div class="voyage-sticky-nav-links">
+      <a href="#overview">개요</a>
+      {% if page.itinerary %}<a href="#itinerary">일정</a>{% endif %}
+      {% if page.ship_info %}<a href="#ship">선박</a>{% endif %}
+      {% if page.cabins %}<a href="#cabins">객실</a>{% endif %}
+      {% if page.included %}<a href="#included">포함</a>{% endif %}
+      <a href="#details">안내</a>
+    </div>
+    <a href="/contact/" class="voyage-sticky-nav-cta">상담 문의</a>
+  </div>
+</nav>

@@ -7,4 +7,6 @@
 | CSS 5종 | 동 라이브러리 `css/` | 토큰만이라도 이후 커밋 후보 |
 | site2-context.md | Google Drive site_data | 미확보 |
 
+| Phase 0 scaffold notes | `docs/handoff/phase0-scaffold-notes.md` | 커밋 |
+
 공유 허브 규약은 `docs/README.md` 참고.

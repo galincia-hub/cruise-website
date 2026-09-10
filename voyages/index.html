@@ -1,0 +1,40 @@
+---
+layout: default
+title: 항해
+description: "싱가포르 단기 항해부터 럭셔리 올인클루시브까지 — 현재 공개된 시드 상품입니다."
+breadcrumb:
+  - { text: "항해" }
+---
+{% include breadcrumb.html items=page.breadcrumb %}
+
+<section class="section">
+  <div class="container">
+    <h1 class="section-title">항해</h1>
+    <p class="section-desc">범용 크루즈 백본의 Phase 0 시드입니다. 럭셔리 1건 + 일반(싱가포르) 1건만 공개하며, 요금은 상담 문의입니다.</p>
+
+    <div class="voyage-grid-3">
+      {% assign listed = site.voyages | sort: "weight" %}
+      {% for p in listed %}
+      <a href="{{ p.url }}" class="voyage-card card">
+        <div class="img">⚓
+          <span class="badge badge-dark" style="position:absolute;top:10px;left:10px">{{ p.nights }}</span>
+          {% if p.stub %}<span class="badge badge-orange" style="position:absolute;top:10px;right:10px">시드</span>{% endif %}
+        </div>
+        <div class="body">
+          <h4>{{ p.title }}</h4>
+          <div class="meta"><span>선사</span> {{ p.cruiseline }}</div>
+          <div class="meta"><span>선박</span> {{ p.ship }}</div>
+          <div class="meta"><span>출발</span> {{ p.departure_date }}</div>
+          <div class="meta"><span>지역</span> {{ p.region }}</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">
+            {% if p.product_type == "luxury" %}<span class="badge badge-navy" style="font-size:10px">럭셔리</span>{% endif %}
+            {% if p.product_type == "general" %}<span class="badge badge-green" style="font-size:10px">일반 항해</span>{% endif %}
+            <span class="badge badge-orange" style="font-size:10px">{{ p.price_display | default: "상담 문의" }}</span>
+          </div>
+        </div>
+        <span class="cta">상세 보기 →</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

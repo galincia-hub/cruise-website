@@ -1,0 +1,13 @@
+<div class="voyage-cta-bar" role="region" aria-label="상담 유도">
+  <div class="container">
+    <div class="voyage-cta-bar-meta">
+      <strong>{{ page.nights }}</strong>
+      {% if page.region %}<span>{{ page.region }}</span>{% endif %}
+      <span>{{ page.price_display | default: "상담 문의" }}</span>
+    </div>
+    <div class="voyage-cta-bar-actions">
+      <a href="tel:02-775-0100" class="btn btn-ghost btn-sm">02-775-0100</a>
+      <a href="/contact/" class="btn btn-primary btn-sm">상담 문의</a>
+    </div>
+  </div>
+</div>

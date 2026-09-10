@@ -7,3 +7,6 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
 end
+
+# Ruby 3.2+ no longer ships webrick; needed for `jekyll serve`
+gem "webrick", "~> 1.8"

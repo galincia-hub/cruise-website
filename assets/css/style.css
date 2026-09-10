@@ -366,6 +366,105 @@ img { max-width: 100%; height: auto; }
   .product-hero .container { grid-template-columns: 1fr; }
   .cl-about .container { grid-template-columns: 1fr; }
 }
+/* --- 35. Phase 0 voyage UX (tokens unchanged) --- */
+.voyage-page { padding-bottom: 76px; }
+.voyage-sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255,255,255,0.95);
+  border-bottom: 1px solid var(--border);
+}
+.voyage-sticky-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.voyage-sticky-nav-links {
+  display: flex;
+  overflow-x: auto;
+}
+.voyage-sticky-nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 12px 14px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.voyage-sticky-nav-links a:hover,
+.voyage-sticky-nav-links a.is-active {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+.voyage-sticky-nav-cta {
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  background: var(--orange);
+  padding: 8px 16px;
+  border-radius: var(--button-radius);
+  white-space: nowrap;
+}
+.voyage-stub-banner {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+.voyage-stub-banner strong {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--orange);
+  margin-bottom: 4px;
+}
+.voyage-stub-banner p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+.voyage-details-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius-lg);
+  padding: 24px;
+  background: var(--bg);
+}
+.voyage-details-price {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy-text);
+  margin-bottom: 8px;
+}
+.voyage-details-card p { font-size: 13px; color: var(--text-light); line-height: 1.8; }
+.voyage-details-actions { display: flex; flex-direction: column; gap: 8px; min-width: 220px; }
+.voyage-kakao-placeholder { pointer-events: none; opacity: 0.55; }
+.voyage-cta-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  background: var(--navy);
+  padding: 12px 0;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+}
+.voyage-cta-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.voyage-cta-bar-meta { color: rgba(255,255,255,0.7); font-size: 13px; display: flex; gap: 12px; flex-wrap: wrap; }
+.voyage-cta-bar-meta strong { color: white; }
+.voyage-cta-bar-actions { display: flex; gap: 8px; }
+.voyage-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+
 @media (max-width: 768px) {
   .cl-grid-5 { grid-template-columns: repeat(2, 1fr); }
   .cl-grid-2 { grid-template-columns: 1fr; }
@@ -379,4 +478,7 @@ img { max-width: 100%; height: auto; }
   .bdm-body { grid-template-columns: 1fr; }
   .cl-intro-compact .container { grid-template-columns: 1fr; }
   .cl-hero .container { flex-direction: column; gap: 24px; }
+  .voyage-details-card { grid-template-columns: 1fr; }
+  .voyage-sticky-nav-cta { display: none; }
+  .voyage-cta-bar .container { flex-direction: column; text-align: center; }
 }

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 홈
-description: "24년간 세계 최상위 크루즈 선사와 함께해온 전문성으로, 당신만의 완벽한 항해를 설계합니다."
+description: "25년간 쌓아 온 크루즈 전문성으로, 싱가포르 단기 항해부터 럭셔리 올인클루시브까지 맞춤 안내합니다."
 ---
 
 <!-- §5.1 row 2: Hero Slider -->
@@ -12,9 +12,10 @@ description: "24년간 세계 최상위 크루즈 선사와 함께해온 전문�
       <span class="dot"></span>
       <span class="dot"></span>
     </div>
-    <h1 class="hero-text">럭셔리 크루즈의 모든 것, 25년의 전문성으로 안내합니다</h1>
-    <p>리젠트 세븐시즈 · 실버시 · 크리스탈 · 리츠칼튼 요트 · 포시즌스 공식 총판</p>
-    <a href="/contact/" class="btn btn-primary" style="margin-top:4px">맞춤 상담 신청</a>
+    <h1 class="hero-text">크루즈의 모든 것 — 일반 항해부터 럭셔리까지</h1>
+    <p>싱가포르·아시아 단기 항해와 리젠트 세븐시즈 등 럭셔리 선사를 함께 안내합니다</p>
+    <a href="/voyages/" class="btn btn-primary" style="margin-top:4px">항해 보기</a>
+    <a href="/contact/" class="btn btn-ghost" style="margin-top:4px;margin-left:8px">상담 문의</a>
   </div>
 </section>
 
@@ -22,7 +23,7 @@ description: "24년간 세계 최상위 크루즈 선사와 함께해온 전문�
 <section class="section" style="border-bottom:1px solid var(--border)">
   <div class="container">
     <h2 class="section-title">취급 선사</h2>
-    <p class="section-desc">세계 최상위 럭셔리 크루즈 선사의 공식 총판입니다.</p>
+    <p class="section-desc">럭셔리부터 일반 항해까지, 목적과 예산에 맞는 선사를 안내합니다.</p>
 
     <div class="tier-label">울트라 럭셔리</div>
     <div class="cl-grid-5" style="margin-bottom:24px">
@@ -38,9 +39,9 @@ description: "24년간 세계 최상위 크루즈 선사와 함께해온 전문�
 
     <div class="cl-grid-2">
       <div>
-        <div class="tier-label">프리미엄</div>
-        {% assign premium = site.data.cruiselines | where: "tier", "프리미엄" %}
-        {% for cl in premium %}
+        <div class="tier-label">프리미엄 · 스페셜티</div>
+        {% assign mid = site.data.cruiselines | where_exp: "cl", "cl.tier == '프리미엄' or cl.tier == '스페셜티'" %}
+        {% for cl in mid %}
         <a href="/{{ cl.slug }}/" class="cl-card-h card">
           <div class="icon">⚓</div>
           <div class="info">
@@ -51,9 +52,9 @@ description: "24년간 세계 최상위 크루즈 선사와 함께해온 전문�
         {% endfor %}
       </div>
       <div>
-        <div class="tier-label">스페셜티</div>
-        {% assign specialty = site.data.cruiselines | where: "tier", "스페셜티" %}
-        {% for cl in specialty %}
+        <div class="tier-label">일반</div>
+        {% assign general = site.data.cruiselines | where: "tier", "일반" %}
+        {% for cl in general %}
         <a href="/{{ cl.slug }}/" class="cl-card-h card">
           <div class="icon">⚓</div>
           <div class="info">
@@ -75,13 +76,14 @@ description: "24년간 세계 최상위 크루즈 선사와 함께해온 전문�
       <div>
         <h2 class="section-title" style="margin-bottom:0">추천 항해</h2>
       </div>
-      <a href="#" class="section-link">전체 보기 →</a>
+      <a href="/voyages/" class="section-link">전체 보기 →</a>
     </div>
     <div class="voyage-grid-3">
       {% for p in site.data.featured_products %}
       <div class="voyage-card card">
         <div class="img">⚓
           <span class="badge badge-dark" style="position:absolute;top:10px;left:10px">{{ p.nights }}</span>
+          {% if p.stub %}<span class="badge badge-orange" style="position:absolute;top:10px;right:10px">시드</span>{% endif %}
         </div>
         <div class="body">
           <h4>{{ p.title }}</h4>
@@ -126,8 +128,8 @@ description: "24년간 세계 최상위 크루즈 선사와 함께해온 전문�
 <div class="trust-strip">
   <div class="container">
     <div class="trust-grid">
-      <div class="trust-item"><div class="icon">🏆</div><div class="num">25년</div><div class="label">럭셔리 크루즈 전문</div></div>
-      <div class="trust-item"><div class="icon">🚢</div><div class="num">9개 선사</div><div class="label">공식 총판 파트너</div></div>
+      <div class="trust-item"><div class="icon">🏆</div><div class="num">25년</div><div class="label">크루즈 전문</div></div>
+      <div class="trust-item"><div class="icon">🚢</div><div class="num">선사 포트폴리오</div><div class="label">럭셔리 + 일반 항해</div></div>
       <div class="trust-item"><div class="icon">👨‍💼</div><div class="num">전문 컨설턴트</div><div class="label">선사별 교육 이수</div></div>
       <div class="trust-item"><div class="icon">✈️</div><div class="num">토탈 케어</div><div class="label">항공·호텔·비자 원스톱</div></div>
     </div>

@@ -4,20 +4,18 @@
   departure: "2026년 6월 15일"
   nights: "10박"
   region: 지중해
-  highlights: ["바르셀로나", "몬테카를로", "산토리니"]
+  highlights: ["아테네", "산토리니 인근", "로마"]
+  url: /regent/med-splendor-2026-06/
+  product_type: luxury
+  stub: true
 
-- title: "알래스카 빙하 탐험 7박"
-  cruiseline: 리젠트 세븐시즈
-  ship: Seven Seas Explorer
-  departure: "2026년 7월 22일"
-  nights: "7박"
-  region: 알래스카
-  highlights: ["케치칸", "주노", "허바드 빙하"]
-
-- title: "노르웨이 피오르드 12박"
-  cruiseline: 실버시
-  ship: Silver Nova
-  departure: "2026년 8월 3일"
-  nights: "12박"
-  region: 북유럽
-  highlights: ["베르겐", "게이랑에르", "트롬쇠"]
+- title: "싱가포르 해협 5박"
+  cruiseline: 로열캐리비안
+  ship: Spectrum of the Seas
+  departure: "2026년 11월 8일"
+  nights: "5박"
+  region: 아시아
+  highlights: ["싱가포르", "페낭", "푸켓"]
+  url: /royalcaribbean/singapore-straits-2026-11/
+  product_type: general
+  stub: true

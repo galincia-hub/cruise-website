@@ -35,30 +35,7 @@ products:
     nights: "10박"
     route: "아테네 → 로마"
     includes: ["무제한 익스커션", "비즈니스 항공", "프리미엄 음료"]
-  - title: "알래스카 빙하 탐험 7박"
-    ship: Seven Seas Explorer
-    departure: "2026년 7월 22일"
-    nights: "7박"
-    route: "밴쿠버 → 수어드"
-    includes: ["무제한 익스커션", "국립공원 전문 가이드"]
-  - title: "노르웨이 피오르드 12박"
-    ship: Seven Seas Voyager
-    departure: "2026년 8월 3일"
-    nights: "12박"
-    route: "코펜하겐 → 스톡홀름"
-    includes: ["무제한 익스커전", "비즈니스 항공"]
-  - title: "카리브해 열대 항해 10박"
-    ship: Seven Seas Grandeur
-    departure: "2026년 12월 10일"
-    nights: "10박"
-    route: "마이애미 → 마이애미"
-    includes: ["무제한 익스커션", "프리미엄 음료"]
-  - title: "세계일주 그랜드 보야지 132박"
-    ship: Seven Seas Mariner
-    departure: "2027년 1월 6일"
-    nights: "132박"
-    route: "로스앤젤레스 → 로스앤젤레스"
-    includes: ["비즈니스 항공", "무제한 익스커션", "1박 프리나잇 호텔"]
+    url: /regent/med-splendor-2026-06/
 
 consultants:
   - name: 김서연

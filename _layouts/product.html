@@ -1,31 +1,47 @@
 ---
 layout: default
 ---
+<div class="voyage-page">
 {% include breadcrumb.html items=page.breadcrumb %}
 
 <!-- §5.3 row 2: Product Hero (3-stop gradient) -->
-<section class="product-hero">
+<section class="product-hero" id="overview">
   <div class="container">
     <div>
       <div class="badges">
         <span class="badge badge-dark">{{ page.cruiseline }}</span>
         <span class="badge badge-dark">{{ page.region }}</span>
         <span class="badge badge-dark">{{ page.nights }}</span>
+        {% if page.product_type == "luxury" %}<span class="badge badge-dark">럭셔리</span>{% endif %}
+        {% if page.product_type == "general" %}<span class="badge badge-dark">일반 항해</span>{% endif %}
+        {% if page.stub %}<span class="badge badge-dark">시드 · 예시</span>{% endif %}
       </div>
       <h1>{{ page.title }}</h1>
       <div class="route-text">{{ page.route_text }}</div>
       <div class="meta-row"><strong>선박</strong> {{ page.ship }}</div>
       <div class="meta-row"><strong>출발</strong> {{ page.departure_date }}</div>
       <div class="meta-row"><strong>항로</strong> {{ page.route_summary }}</div>
+      {% if page.sailing_code %}<div class="meta-row"><strong>코드</strong> {{ page.sailing_code }}</div>{% endif %}
     </div>
     <div class="cta-card">
-      <h3>상담 예약</h3>
-      <p>공식 총판사로서 최적의 요금과 맞춤 객실 배정을 안내드립니다.</p>
-      <a href="/contact/" class="btn btn-primary" style="display:block;text-align:center">맞춤 상담 신청</a>
-      <a href="tel:02-775-0100" class="btn btn-ghost" style="display:block;text-align:center;margin-top:8px">📞 02-775-0100</a>
+      <h3>상담 문의</h3>
+      <p>{{ page.price_display | default: "상담 문의" }} — 확정 요금과 객실 재고는 상담으로 안내합니다. 문의 폼 백엔드는 아직 연결하지 않았습니다.</p>
+      <a href="/contact/" class="btn btn-primary" style="display:block;text-align:center">상담 문의</a>
+      <a href="tel:02-775-0100" class="btn btn-ghost" style="display:block;text-align:center;margin-top:8px">02-775-0100</a>
     </div>
   </div>
 </section>
+
+{% include sticky-nav.html %}
+
+{% if page.stub or page.price_disclaimer %}
+<div class="voyage-stub-banner">
+  <div class="container">
+    <strong>{% if page.stub %}시드 상품{% else %}요금 안내{% endif %}</strong>
+    <p>{{ page.price_disclaimer | default: "이 페이지는 예시 시드입니다. 요금은 상담으로 확인하세요." }}</p>
+  </div>
+</div>
+{% endif %}
 
 <!-- §5.3 row 3: Route Map -->
 {% if page.route_map %}
@@ -49,15 +65,15 @@ layout: default
 
 <!-- §5.3 row 4: Itinerary -->
 {% if page.itinerary %}
-<section class="section" style="padding-bottom:0">
+<section class="section" id="itinerary" style="padding-bottom:0">
   <div class="container">
     {% include section-divider.html label="일정표" %}
     <h2 class="section-title">항해 일정 <span style="font-weight:400;font-size:15px;color:var(--text-muted)">{{ page.nights }} · {{ page.itinerary | size }}일</span></h2>
-    <p class="section-desc">각 기항지를 클릭하면 상세 정보를 확인할 수 있습니다.</p>
+    <p class="section-desc">각 기항지를 클릭하면 상세 정보를 확인할 수 있습니다.{% if page.stub %} 시드 일정이며 실제 스케줄과 다를 수 있습니다.{% endif %}</p>
     <div>
       {% for day in page.itinerary %}
       <div class="itinerary-item{% if forloop.first %} open{% endif %}">
-        <div class="itinerary-row" onclick="this.parentElement.classList.toggle('open')">
+        <div class="itinerary-row">
           <div class="day">Day {{ day.day }}</div>
           <div class="port">
             {{ day.port }}
@@ -86,7 +102,7 @@ layout: default
 
 <!-- §5.3 row 5: Ship Info -->
 {% if page.ship_info %}
-<section class="section">
+<section class="section" id="ship">
   <div class="container">
     {% include section-divider.html label="선박 소개" %}
     <div style="display:grid;grid-template-columns:1fr;gap:20px">
@@ -110,11 +126,11 @@ layout: default
 
 <!-- §5.3 row 6: Cabin Guide -->
 {% if page.cabins %}
-<section class="section" style="padding-top:0">
+<section class="section" id="cabins" style="padding-top:0">
   <div class="container">
     {% include section-divider.html label="객실 안내" %}
-    <h2 class="section-title">객실 안내 <span style="font-weight:400;font-size:15px;color:var(--text-muted)">전 객실 스위트 · 프라이빗 발코니</span></h2>
-    <p class="section-desc">모든 객실은 스위트 등급이며, 선사 공식 총판으로서 최적 객실 배정을 안내드립니다.</p>
+    <h2 class="section-title">객실 안내{% if page.cabin_subtitle %} <span style="font-weight:400;font-size:15px;color:var(--text-muted)">{{ page.cabin_subtitle }}</span>{% endif %}</h2>
+    <p class="section-desc">{{ page.cabin_desc | default: "객실 등급과 재고는 상담으로 안내드립니다." }}</p>
     <div class="cabin-grid">
       {% for cabin in page.cabins %}
       <div class="cabin-card card tier-{{ cabin.tier | default: 1 }}">
@@ -131,8 +147,9 @@ layout: default
       {% endfor %}
     </div>
     <div style="text-align:center;margin-top:20px">
-      <p style="font-size:13px;color:var(--text-light);margin-bottom:12px">객실 등급별 상세 비교와 최적 객실 추천을 받아보세요.</p>
-      <a href="/contact/" class="btn btn-primary btn-sm">객실 상담 신청</a>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:12px">객실 비교와 배정은 상담으로 안내합니다. 상위 등급은 전화 문의가 빠릅니다.</p>
+      <a href="/contact/" class="btn btn-primary btn-sm">객실 상담 문의</a>
+      <a href="tel:02-775-0100" class="btn btn-secondary btn-sm" style="margin-left:8px">02-775-0100</a>
     </div>
   </div>
 </section>
@@ -140,11 +157,11 @@ layout: default
 
 <!-- §5.3 row 7: Included Services -->
 {% if page.included %}
-<section class="section" style="padding-top:0">
+<section class="section" id="included" style="padding-top:0">
   <div class="container">
     {% include section-divider.html label="포함 서비스" %}
-    <h2 class="section-title">포함 서비스 <span style="font-weight:400;font-size:15px;color:var(--text-muted)">올인클루시브</span></h2>
-    <p class="section-desc">별도 비용 걱정 없는 진정한 올인클루시브 — 추가 요금 없이 모든 것이 포함됩니다.</p>
+    <h2 class="section-title">포함 서비스{% if page.included_subtitle %} <span style="font-weight:400;font-size:15px;color:var(--text-muted)">{{ page.included_subtitle }}</span>{% endif %}</h2>
+    <p class="section-desc">{{ page.included_desc | default: "포함 사항은 선사·패키지에 따라 다릅니다. 확정 내역은 상담으로 확인하세요." }}</p>
     <div class="included-grid">
       {% for cat in page.included %}
       <div class="included-card card">
@@ -161,6 +178,26 @@ layout: default
 </section>
 {% endif %}
 
+<!-- Dates / enquiry placeholder (no locked prices) -->
+<section class="section" id="details" style="padding-top:0">
+  <div class="container">
+    {% include section-divider.html label="요금 · 문의" %}
+    <h2 class="section-title">요금과 예약 안내</h2>
+    <p class="section-desc">상담 유도 엔진입니다. 온라인 결제·실시간 재고는 없습니다.</p>
+    <div class="voyage-details-card">
+      <div>
+        <div class="voyage-details-price">{{ page.price_display | default: "상담 문의" }}</div>
+        <p>{% if page.gsa_rate_hidden %}GSA·전용 요금은 사이트에 공개하지 않습니다. {% endif %}{{ page.price_disclaimer | default: "요금은 변동될 수 있으며 확정 견적은 상담으로 안내합니다." }}</p>
+      </div>
+      <div class="voyage-details-actions">
+        <a href="/contact/" class="btn btn-primary">상담 문의</a>
+        <a href="tel:02-775-0100" class="btn btn-secondary">전화 02-775-0100</a>
+        <a href="#" class="btn btn-secondary voyage-kakao-placeholder" aria-disabled="true">카카오톡 (URL 미정)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- §5.3 row 8: Cruiseline Intro Compact (§9.3) -->
 <section class="cl-intro-compact">
   <div class="container">
@@ -169,20 +206,20 @@ layout: default
     </div>
     <div>
       <h3>{{ page.cruiseline }}</h3>
-      <div class="en">{{ page.cruiseline_en | default: "Official Partner" }}</div>
-      <p>{{ page.cruiseline_desc | default: "세계 최상위 럭셔리 크루즈 선사. 크루즈인터내셔널은 공식 총판으로서 최적의 요금과 맞춤 서비스를 제공합니다." }}</p>
-      <a href="/{{ page.cruiseline_slug | default: 'regent' }}/" class="section-link">선사 상세 보기 →</a>
+      <div class="en">{{ page.cruiseline_en | default: "Cruise Line" }}</div>
+      <p>{{ page.cruiseline_desc | default: "크루즈인터내셔널이 취급하는 선사입니다. 요금과 배정은 상담으로 안내합니다." }}</p>
+      <a href="/{{ page.cruiseline_slug }}/" class="section-link">선사 상세 보기 →</a>
     </div>
   </div>
 </section>
 
-<!-- §5.3 row 9: Consultants -->
+<!-- §5.3 row 9: Consultants — gated; only render if present -->
 {% if page.consultants %}
 <section style="background:var(--bg);padding:var(--section-gap) 0">
   <div class="container">
     {% include section-divider.html label="전문 컨설턴트" %}
     <h2 class="section-title">이 항해의 전문 컨설턴트</h2>
-    <p class="section-desc">선사 공식 인증을 받은 전문가가 객실 선택부터 기항지 관광까지 안내드립니다.</p>
+    <p class="section-desc">노출 여부·실명은 아직 게이트입니다. 아래는 기존 플레이스홀더입니다.</p>
     <div class="consultant-grid-2">
       {% for c in page.consultants %}
         {% include card-consultant.html c=c %}
@@ -198,10 +235,10 @@ layout: default
   <div class="container">
     {% include section-divider.html label="유사 항해 추천" %}
     <h2 class="section-title">이런 항해도 살펴보세요</h2>
-    <p class="section-desc">현재 항해와 유사한 다른 항해를 추천합니다.</p>
+    <p class="section-desc">현재 공개된 시드 항해를 교차 안내합니다.</p>
     <div class="voyage-grid-4">
       {% for s in page.similar %}
-      <div class="voyage-card card similar-card">
+      {% if s.url %}<a href="{{ s.url }}" class="voyage-card card similar-card">{% else %}<div class="voyage-card card similar-card">{% endif %}
         <div class="img {% if s.same_line %}same-line{% else %}diff-line{% endif %}">⚓
           <span class="badge badge-dark" style="position:absolute;top:10px;left:10px">{{ s.nights }}</span>
         </div>
@@ -212,12 +249,8 @@ layout: default
           <div class="meta"><span>출발</span> {{ s.date }}</div>
           <div style="margin-top:8px"><span class="badge badge-orange" style="font-size:10px">{{ s.badge }}</span></div>
         </div>
-      </div>
+      {% if s.url %}</a>{% else %}</div>{% endif %}
       {% endfor %}
-    </div>
-    <div class="similar-legend">
-      <span><span class="dot" style="background:var(--navy)"></span>같은 선사</span>
-      <span><span class="dot" style="background:#5A7B9A"></span>다른 선사</span>
     </div>
   </div>
 </section>
@@ -243,3 +276,6 @@ layout: default
   </div>
 </section>
 {% endif %}
+
+{% include voyage-cta-bar.html %}
+</div>
