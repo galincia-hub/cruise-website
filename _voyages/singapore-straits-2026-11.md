@@ -23,7 +23,7 @@ sailing_code: RCI-SIN-SPC-2026-11
 departure_status: call
 price_display: 상담 문의
 price_disclaimer: "시드 상품입니다. 일정·기항지·요금은 선사 스케줄에 따라 달라지며 이 페이지 수치는 예시입니다. 확정 견적과 재고는 상담으로 안내합니다. 잠정 가격을 표기하지 않습니다."
-gsa_rate_hidden: true
+gsa_rate_hidden: false
 weight: 2
 cabin_subtitle: "인사이드 · 오션뷰 · 발코니 · 스위트"
 cabin_desc: "일반 선박 객실 구성입니다. 등급별 재고와 요금은 상담으로 확인합니다."
