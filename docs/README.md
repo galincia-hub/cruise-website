@@ -4,9 +4,10 @@
 
 ## 시작점
 
+- **[크루즈AI시스템 1차 기획서 (통합)](overview/cruise-ai-master-plan-v1.md)** ← 전체 한 장
 - [전체 맵 v1 (확정)](overview/system-map-v1.md)
 - [크루즈AI시스템 개요](overview/cruise-ai-system.md)
-- 1차 기획 묶음: [사이트 게이트](overview/site-gates.md) · [MD 듀얼](overview/md-dual-bridge.md) · [KMS/DB](overview/kms-db-phases.md) · [CRM 유입](overview/crm-intake.md) · [Studio 채널](overview/studio-channels.md) · [3트랙 훅](overview/growth-hooks.md)
+- 1차 기획 조각: [사이트 게이트](overview/site-gates.md) · [MD 듀얼](overview/md-dual-bridge.md) · [KMS/DB](overview/kms-db-phases.md) · [CRM 유입](overview/crm-intake.md) · [Studio 채널](overview/studio-channels.md) · [3트랙 훅](overview/growth-hooks.md)
 
 ## 규약
 
