@@ -1,8 +1,9 @@
 <nav class="gnb">
   <div class="container">
+    <a href="/voyages/"{% if page.url == '/voyages/' %} class="active"{% endif %}>항해</a>
     {% for cl in site.data.cruiselines %}
     <a href="/{{ cl.slug }}/"{% if page.cruiseline_slug == cl.slug %} class="active"{% endif %}>{{ cl.name_ko }}</a>
     {% endfor %}
-    <a href="/contact/" class="gnb-cta">상담하기</a>
+    <a href="/contact/" class="gnb-cta">상담 문의</a>
   </div>
 </nav>

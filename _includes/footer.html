@@ -11,22 +11,22 @@
         </div>
       </div>
       <div>
-        <h5>울트라 럭셔리</h5>
-        <a href="/regent/">리젠트 세븐시즈</a>
-        <a href="/silversea/">실버시</a>
-        <a href="/crystal/">크리스탈</a>
-        <a href="/ritzcarlton/">리츠칼튼 요트</a>
-        <a href="/fourseasons/">포시즌스</a>
+        <h5>항해</h5>
+        <a href="/voyages/">전체 항해</a>
+        <a href="/regent/med-splendor-2026-06/">지중해 올인클루시브 10박</a>
+        <a href="/royalcaribbean/singapore-straits-2026-11/">싱가포르 해협 5박</a>
+        <a href="/blog/">블로그</a>
       </div>
       <div>
-        <h5>프리미엄 & 특화</h5>
-        <a href="/oceania/">오세아니아</a>
-        <a href="/paulgauguin/">폴고갱</a>
+        <h5>선사</h5>
+        {% for cl in site.data.cruiselines %}
+        <a href="/{{ cl.slug }}/">{{ cl.name_ko }}</a>
+        {% endfor %}
       </div>
       <div>
         <h5>고객 지원</h5>
-        <a href="/contact/">상담 신청</a>
-        <a href="/blog/">블로그</a>
+        <a href="/contact/">상담 문의</a>
+        <a href="tel:02-775-0100">전화 02-775-0100</a>
         <a href="/about/">회사 소개</a>
       </div>
     </div>

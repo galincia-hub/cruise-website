@@ -39,3 +39,9 @@
   name_ko: 폴고갱
   tier: "스페셜티"
   tagline: "남태평양 전문"
+
+- slug: royalcaribbean
+  name_en: Royal Caribbean International
+  name_ko: 로열캐리비안
+  tier: "일반"
+  tagline: "싱가포르 홈포트 대형 선박"

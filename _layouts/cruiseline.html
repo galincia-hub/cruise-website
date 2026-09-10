@@ -86,7 +86,7 @@ layout: default
           </div>
           {% endif %}
         </div>
-        <a href="#" class="cta">상세 보기 →</a>
+        <a href="{{ p.url | default: '/contact/' }}" class="cta">{% if p.url %}상세 보기 →{% else %}상담 문의 →{% endif %}</a>
       </div>
       {% endfor %}
     </div>

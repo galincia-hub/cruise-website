@@ -14,8 +14,23 @@ route_summary: "아테네 → 미코노스 → 카타콜론 → 발레타 → �
 route_map: /assets/images/mediterranean_route_map.png
 route_ports: ["아테네 (피레우스)", "미코노스", "카타콜론", "종일항해", "발레타", "메시나", "나폴리", "종일항해", "로마"]
 breadcrumb:
+  - { text: "항해", url: "/voyages/" }
   - { text: "리젠트 세븐시즈", url: "/regent/" }
   - { text: "지중해 올인클루시브 10박" }
+
+stub: true
+product_type: luxury
+sailing_code: RSSC-MED-SPL-2026-06
+departure_status: call
+price_display: 상담 문의
+price_disclaimer: "시드 상품입니다. 요금·재고·항공 포함 여부는 선사·객실·출발일에 따라 달라지며 이 페이지의 일정은 예시입니다. GSA 전용 요금은 공개하지 않으며, 확정 견적은 상담으로 안내합니다."
+gsa_rate_hidden: true
+weight: 1
+cabin_subtitle: "전 객실 스위트 · 프라이빗 발코니"
+cabin_desc: "모든 객실은 스위트 등급입니다. 객실 배정과 확정 요금은 상담으로 안내드립니다."
+included_subtitle: "올인클루시브 (선사 프로그램 기준)"
+included_desc: "리젠트 올인클루시브가 기본 골격입니다. 항공·객실 등급별 차이는 상담 시 확인합니다. 잠정 가격을 표기하지 않습니다."
+cruiseline_desc: "리젠트 세븐시즈(RSSC)는 전 객실 스위트 올인클루시브 럭셔리 선사입니다. 크루즈인터내셔널은 공식 총판으로서 상담을 진행합니다."
 
 itinerary:
   - { day: 1, port: "아테네 (피레우스)", arrive: "—", depart: "18:00", type: "embark", detail: "그리스의 수도 아테네에서 승선합니다. 파르테논 신전과 아크로폴리스를 미리 방문하실 수 있도록 프리나잇 호텔을 안내드립니다." }
@@ -60,10 +75,7 @@ included:
     items: ["캐년랜치 스파 시설 이용", "피트니스·조깅트랙·풀 데크", "프로덕션 쇼, 재즈, 클래식 공연"]
 
 similar:
-  - { title: "아드리아해 & 그리스 8박", cruiseline: "리젠트 세븐시즈", ship: "Seven Seas Voyager", nights: "8박", date: "2026. 7. 3", badge: "같은 선사 · 같은 지역", same_line: true }
-  - { title: "서부 지중해 12박", cruiseline: "리젠트 세븐시즈", ship: "Seven Seas Splendor", nights: "12박", date: "2026. 9. 12", badge: "같은 선사 · 같은 지역", same_line: true }
-  - { title: "북유럽 발틱 10박", cruiseline: "리젠트 세븐시즈", ship: "Seven Seas Grandeur", nights: "10박", date: "2026. 7. 18", badge: "같은 선사 · 비슷한 기간", same_line: true }
-  - { title: "지중해 프라이빗 7박", cruiseline: "실버시", ship: "Silver Nova", nights: "7박", date: "2026. 6. 28", badge: "같은 등급 · 같은 지역", same_line: false }
+  - { title: "싱가포르 해협 5박", cruiseline: "로열캐리비안", ship: "Spectrum of the Seas", nights: "5박", date: "2026. 11. 8", badge: "일반 항해 시드", same_line: false, url: "/royalcaribbean/singapore-straits-2026-11/" }
 
 consultants:
   - name: 김서연
